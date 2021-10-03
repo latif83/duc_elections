@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="s">
+		
+	</div>
+
+<div style="height: 8em;">
+	<button onclick="window.print();" type="button">print</button>
+</div>
+
+	<footer>
+	&copy;
+</footer>
+
+<style type="text/css">
+
+	button{
+		float: right;
+		padding: 2%;
+		font-size: 1.2em;
+		font-weight: bolder;
+		margin-right: 5%;
+	}
+
+	@media print {
+               button {
+                  visibility: hidden;
+               }
+           }
+</style>
+
+<script type="text/javascript">
+	function u(){
+		document.querySelector('button').style.display='none';
+	}
+        var today=new Date();
+        var year=today.getFullYear();
+        var footer=document.querySelector('footer');
+        footer.textContent+=year+" SRC";
+        console.log(year);
+    </script>
+
+	<script type="text/javascript">
+		var request = new XMLHttpRequest();
+		var url="http://localhost/DOMINIONSRC/results.php";
+		request.open("GET",url,true);
+		request.onreadystatechange=function(){
+			document.querySelector('div#s').innerHTML=request.responseText;
+		}
+		request.send();
+
+	</script>
+
+</body>
+</html>

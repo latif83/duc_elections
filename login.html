@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>index number</title>
+	<link rel="icon" type="image/x-icon" href="assets/logo.png">
+	<script type="text/javascript" defer="true">
+		
+		function check(data){
+
+		var conn=new XMLHttpRequest();
+
+		var url="http://192.168.137.1/DOMINIONSRC/login.php?index="+data;//+data;
+		
+		conn.open("GET",url,true);
+		//conn.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+		conn.onreadystatechange=function(){
+
+			if (this.readyState==4) {
+			var dis=document.getElementById('non');
+			var marg=document.querySelector('form');
+
+			var pattern=/wrong/;
+			var text=this.responseText;
+
+			if (pattern.test(text)) {
+				dis.textContent=text;
+				dis.style.display="block";
+				//alert("right");
+			}
+			else{
+				dis.style.visibility="hidden";
+				document.querySelector('button#send').removeAttribute('disabled');
+				//marg.marginTop=0;
+			}
+	}
+
+	}
+		//var data=document.querySelector('input');
+		conn.send();
+}
+
+	</script>
+</head>
+<body>
+
+	<div class="contents">
+
+		<div class="duc"> Dominion University College</div>
+
+
+	<div id="logo">
+		<img src="assets/logo.png">
+	</div>
+
+	<div id="message">Welcome to DUC SRC voting platform. kindly enter your index number below to proceed. </div>
+
+	
+		<div id="non"></div>
+
+	<form method="GET" action="login.php">
+
+		<label for="id"> ENTER YOUR INDEX NUMBER HERE...</label><br>
+		 
+		<input type="text" id="id" name="index" oninput="check(this.value)" autofocus="true"><br>
+
+		<button type="submit" id="send" disabled="">Submit</button>
+
+	</form>
+
+</div>
+
+<script type="text/javascript">
+
+	function cancel(){
+		document.getElementById('message').style.display="none";
+	}
+
+	var body=document.querySelector('body');
+
+	var i=0;
+
+	setInterval(function(){
+		if (i===13) {i=0}
+
+			if(i<=7){
+				body.style.backgroundImage="url('assets/voteback.jpg')";
+			body.style.backgroundPositionY="40%";
+			
+		}
+		else if (i<=12) {
+			body.style.backgroundImage="url('assets/duc.jpg')";
+			body.style.backgroundPositionY="0";
+
+		}
+
+		i++;
+	},1000)
+	/*var x=document.querySelector("button#send").addEventListener("click", function(event){
+            event.preventDefault()
+        }
+        );*/
+</script>
+
+	
+
+	<style type="text/css">
+
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		body{
+			background-image: url('assets/voteback.jpg');
+			background-size: cover;
+			background-position-y: 40%;
+		}
+
+		div.contents{
+			width: 30%;
+			border: 2px solid black;
+			margin: 5% auto;
+			background: #ffffffb8;
+			padding: 2%;
+			border-radius: 0.9rem;
+		}
+
+		div.duc{
+			text-align: center;
+			font-weight: bold;
+			font-size: 2em;
+			margin-top: 1%;
+		}
+
+		div#logo{
+			text-align: center;
+			margin: 5% auto;
+		}
+
+		div#message{
+			background: #2a213cfa;
+			color: white;
+			font-size: 1.1em;
+			font-weight: normal;
+			padding: 2% 0 2% 2%;
+			line-height: 120%;
+			font-family: gabroila;
+			margin: 5% auto;
+			border-radius: .25rem;
+			width: 95%;
+		}
+
+
+		label{
+			padding-bottom: 4%;
+			font-size: 1.5em;
+			text-shadow: 0px -1px 10px white;
+			font-weight: bolder;
+			color: #2b233c;
+		}
+
+		form{
+			text-align: center;
+			width: 100%;
+			margin-top: 6%;
+			font-family: monospace;
+		}
+
+			
+
+		input{
+			height: 40px;
+			width: 95%;
+			font-size: 1em;
+			font-family: gabroila;
+			font-weight: bold;
+			background-color: #2b6c9236;
+			padding-left: 2%;
+			border-radius: 0.25rem;
+			outline-color: #2a213cfa;
+			border: 1px solid black;
+		}
+
+		button{
+			padding: 2%;
+			font-size: 110%;
+			font-weight: bold;
+			font-family: gabroila;
+			word-spacing: 1px;
+			color: white;
+			font-family: cursive;
+			border: 2px solid black;
+			background: #2a213cfa;
+			border-radius: .9rem;
+			margin-top: 5%;
+
+		}
+		div#non{
+			text-align: center;
+			font-size: 1em;
+			display: none;
+			width: 100%;
+			color: red;
+			font-weight: bolder;
+		}
+
+		button:disabled{
+			background: #2a213cfa;
+			opacity: 50%;
+			color: white;
+		}
+
+
+		@media(max-width: 1123px){
+			div.contents{
+				width: 40%;
+			}
+		}
+
+		@media(max-width: 479px){
+
+			body{
+				background-size: 1100px;
+				background-position-x: 50%;
+			}
+			div.contents{
+				width: 80%;
+				margin-top: 20%;
+			}
+
+			div.duc{
+				font-size: 1.5em;
+			}
+
+			div#message{
+				font-size: .7em;
+			}
+
+			label{
+				font-size: 1.1em;
+			}
+		}
+
+        @font-face {
+  font-family: inflecto;
+  src: url(inflecto.otf);
+}		
+	</style>
+
+</body>
+</html>

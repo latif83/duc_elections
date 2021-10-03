@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+	<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script-->
+
+<!--script src="http://localhost/bootstrap/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="http://localhost/bootstrap/css/bootstrap.min.css"-->
+</head>
+<body>
+
+
+<fieldset>
+	<legend> Register </legend>
+
+	<div id="logo">
+		<img src="assets/logo.png">
+	</div>
+
+	<p style="text-align: center; font-size: 1em; font-weight: 600; padding: 2%; color: #992a2b;">Create your voting account. It takes only 30 seconds</p>
+
+	<form method="POST" action="register.php">
+
+		<input type="text" name="user" placeholder="Enter Your FullName" autofocus="true">
+		<input type="text" name="id" placeholder="Index Number">
+
+		<button type="submit"> Register </button>
+	</form>
+
+</fieldset>
+
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+
+	body{
+            background-image: url('assets/voteback.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position-y: 40%;
+        }
+
+	div#logo{
+		text-align: center;
+	}
+
+	input{
+		display: block;
+		width: 80%;
+		margin: 5% auto;
+		padding: 3%;
+		font-size: 1em;
+		font-weight: bold;
+		border-radius: 0.25rem;
+		outline-color: #992a2b;
+	}
+
+	button{
+		float: right;
+		font-weight: bold;
+		padding: 2%;
+		font-size: 1em;
+		background-color: #992a2b;
+		color: white;
+		border: none;
+		border-radius: 0.25rem;
+		cursor: pointer;
+	}
+
+	fieldset{
+		border-radius: 0.25rem;
+		width: 30%;
+		margin: 5% auto;
+		padding: 3% 4%;
+		background-color: white;
+
+	}
+
+	legend{
+		margin: auto;
+		padding: 2%;
+		font-size: 1.2em;
+		font-weight: bold;
+		background-color: white;
+		border: 1px solid black;
+		border-radius: 0.25rem;
+	}
+
+	@media(max-width: 479px){
+
+		body{
+			background-size: 1200px;
+			background-position-x: 50%;
+			background-repeat: repeat;
+		}
+
+		fieldset{
+			width: 70%;
+			margin: 25% auto;
+			background-color: #ffffff78;
+		}
+
+	}
+</style>
+
+</body>
+</html>

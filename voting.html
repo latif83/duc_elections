@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Voting</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="voting.css?1422585377">
+	<link rel="icon" type="image/x-icon" href="assets/logo.png">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!--script src="http://localhost/bootstrap/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="http://localhost/bootstrap/css/bootstrap.min.css"-->
+	
+</head>
+<body>
+
+	<div class="container contents">
+
+		<div id="user"></div>
+
+		<form method="POST" action="voting.php">
+
+		<div class="display" id="president">
+
+			<h3 class="heading"> President</h3>
+
+			<div class="row">
+				
+				<div class="col-sm-6 saah">
+
+					<p> <img src="assets/saah.jpeg" class="profile"> </p>
+
+					<p id="name"> Emmanuel Kobby Saah </p>
+
+					<label for="saah">Vote</label>
+					<input type="radio" name="president" value="saah" id="saah"> 
+				
+				</div>
+
+				<div class="col-sm-6 tetteh">
+
+					<p> <img src="assets/tetteh.jpeg" class="profile"> </p>
+
+					<p id="name"> Emmanuel Kwame Tetteh </p>
+
+					<label for="tetteh">Vote</label>
+					<input type="radio" name="president" value="tetteh" id="tetteh">
+				</div>
+
+			</div>
+
+			<button type="button" onclick="nextprev()">Next</button>
+
+		</div>
+
+		<div class="hide" id="gensecretary">
+
+			<h3 class="heading">General Secretary</h3>
+
+			<div class="row">
+
+				<div class="col-sm-12 gloria">
+
+					<p> <img src="assets/gloria.jpeg" class="profile"> </p>
+					<p id="name"> Gloria Afi Mansah Dzokoto </p>
+
+					<input type="radio" name="gensecretary" value="gloria" id="gloria">
+					<label for="gloria">Yes</label>
+
+					<input type="radio" name="gensecretary" value="no" id="no">
+					<label for="no">No</label>
+					
+				</div>
+
+
+			</div>
+
+			<button type="button" onclick="nextprev()">Next</button>
+			
+
+		</div>
+
+		<div class="hide" id="fansecretary">
+
+			<h3 class="heading"> Financial Secretary</h3>
+
+			<div class="row">
+				
+				<div class="col-sm-12 solomon">
+
+					<p> <img src="assets/solomon.jpeg" class="profile"> </p>
+
+					<p id="name"> Solomon Tetteh</p>
+
+					<input type="radio" name="fansecretary" value="solomon" id="solomon">
+					<label for="solomon">Yes</label>
+
+					<input type="radio" name="fansecretary" value="no" id="fino">
+					<label for="fino">No</label>
+				
+				</div>
+
+				<!--div class="col-sm-6 patience">
+
+					<p> <img src="assets/avatar.png" class="profile"> </p>
+
+					<p id="name"> Patience Amegadze </p>
+
+					<label for="patience">Vote</label>
+					<input type="radio" name="fansecretary" value="patience" id="patience">
+				</div-->
+
+			</div>
+			<button type="button" onclick="nextprev()">Next</button>
+		</div>
+
+		<div class="hide" id="wocom">
+
+			<h3 class="heading">Women Commissioner</h3>
+
+			<div class="row">
+
+				<div class="col-sm-12 celestine">
+
+					<p> <img src="assets/celestine.jpeg" class="profile"> </p>
+					<p id="name"> Celestine M. Agbedonu </p>
+
+					<input type="radio" name="wocom" value="celestine" id="celestine">
+					<label for="celestine">Yes</label>
+
+					<input type="radio" name="wocom" value="no" id="wno">
+					<label for="wno">No</label>
+					
+				</div>
+
+			</div>
+
+			<button type="button" onclick="nextprev()">Next</button>
+		</div>
+
+		<div class="hide" id="pro">
+
+			<h3 class="heading">Public Relations Officer</h3>
+
+			<div class="row">
+
+				<div class="col-sm-12 janet">
+
+					<p> <img src="assets/janet.jpeg" class="profile"> </p>
+					<p id="name"> Janet S. Gray </p>
+
+					<input type="radio" name="pro" value="janet" id="janet">
+					<label for="janet">Yes</label>
+
+					<input type="radio" name="pro" value="no" id="pno">
+					<label for="pno">No</label>
+					
+				</div>
+
+			</div>
+
+			<button type="button" onclick="nextprev()">Next</button>
+			
+		</div>
+
+		<div class="hide" id="organizer">
+
+			<h3 class="heading">Organizer</h3>
+
+			<div class="row">
+
+				<div class="col-sm-12 seth">
+
+					<p> <img src="assets/seth.jpeg" class="profile"> </p>
+					<p id="name"> Seth Addo Atombo </p>
+
+					<input type="radio" name="organizer" value="seth" id="seth">
+					<label for="seth">Yes</label>
+
+					<input type="radio" name="organizer" value="no" id="ono">
+					<label for="ono">No</label>
+					
+				</div>
+
+			</div>
+
+			<button type="submit" id="submit" style="background-color: blue; color: white; padding: 2% !important; font-size: 1.2em; border-radius: 10%;" >Submit Vote</button>
+			
+		</div>
+
+		</form>
+
+	</div>
+
+
+
+
+	<script type="text/javascript" defer="true">
+
+		function seee(){
+		var see=document.querySelector('input[name=president]').checked;
+		see.value;
+		//var but=document.querySelector('button#submit');
+		alert(see);
+	}
+
+		var body=document.querySelector('body');
+
+		var i=0;
+
+	setInterval(function(){
+		if (i===13) {i=0}
+
+			if(i<=7){
+				body.style.backgroundImage="url('assets/voteback.jpg')";
+			body.style.backgroundPositionY="40%";
+			
+		}
+		else if (i<=12) {
+			body.style.backgroundImage="url('assets/duc.jpg')";
+			body.style.backgroundPositionY="0";
+
+		}
+
+		i++;
+	},1000)
+
+		function vote(data){
+			data.style.border="none";
+			document.querySelector("img#display").style.display="inline";
+		}
+
+		var display=document.getElementById('user');
+		var request=new XMLHttpRequest();
+		var url="user.php";
+		
+		request.open("GET",url,true);
+		request.onreadystatechange=function(){
+		if (this.readyState==4) {
+			//if (this.status == 200) {
+		display.innerHTML=this.responseText;
+	//}
+	/*if (this.status !==200 ) {
+		alert('Bad Connection'); //window.location.replace('out.html');
+	}*/
+	if(this.responseText=="") {
+			alert('SESSION timeout'); window.location.replace('out.html');
+		}
+	}
+	}
+		request.send();
+
+		function nextprev(){
+
+			var president=document.getElementById('president');
+			var gensecretary=document.getElementById('gensecretary');
+			var fansecretary=document.getElementById('fansecretary');
+			var wocommissioner=document.getElementById('wocom');
+			var pro=document.getElementById('pro');
+			var orgsecretary=document.getElementById('organizer');
+			//var extaffairspresident=document.getElementById('extaffairspresident');
+
+			if (president.className=="display") {
+				gensecretary.className="display";
+				president.className="hide";
+			}
+			else if (gensecretary.className=="display") {
+				fansecretary.className="display";
+				gensecretary.className="hide";
+			}
+
+			else if(fansecretary.className=="display"){
+				wocommissioner.className="display";
+				fansecretary.className="hide";
+			}
+
+			else if(wocommissioner.className=="display"){
+				wocommissioner.className="hide";
+				pro.className="display";
+			}
+
+			else{
+				pro.className="hide";
+				orgsecretary.className="display";
+			}
+		}
+
+	</script>
+
+	<footer style="padding: 2%; text-align: center; background-color: black; color: white; font-weight: bolder; margin-top: 2.5%;">
+		&copy 2021 SRC
+	</footer>
+
+</body>
+</html>

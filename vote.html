@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Voting</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="voting.css?1422585377">
+	<link rel="icon" type="image/x-icon" href="assets/logo.png">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script src="C:\Users\Acer\Desktop\bootstrap\bootstrap-5.1.0-dist\js\bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="C:\Users\Acer\Desktop\bootstrap\bootstrap-5.1.0-dist\css\bootstrap.min.css">
+	
+</head>
+<body>
+
+	<div class="container">
+		
+		<div class="contents">
+			
+			<form>
+
+				<div class="row">
+					
+					<div class="col-sm-6" style="text-align: center;">
+						<img src="assets/saah.jpeg"><br>
+						Emmanuel Kobby Saah<br>
+						<label for="a" style="font-size: 1.5em; height: 40px;">Vote</label>
+						<input type="radio" name="president" value="latif" id="a">
+					</div>
+
+					<div class="col-sm-6" style="text-align: center;">
+						<img src="assets/saah.jpeg"><br>
+						Emmanuel Kobby Saah<br>
+						<label>Vote</label>
+						<input type="radio" name="president" value="latif">
+
+					</div>
+				</div>
+
+			</form>
+		</div>
+
+	</div>
+		
+<!--div class="display" id="president">
+
+	<h1 class="heading"> Presidential Vote </h1>
+		<table>
+			
+			<tr>
+				<td>
+					<img src="assets/saah.jpeg">
+				</td>
+				<td>
+					Emmanuel Kobby Saah
+				</td>
+				<td>
+					<input type="radio" name="president" value="latif">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<img src="assets/avatar.png">
+				</td>
+				<td>
+					Emmanuel k. Tetteh
+				</td>
+				<td>
+					<input type="radio" name="president" value="david">
+				</td>
+				
+			</tr>
+
+			<tr>
+				<td>
+					<img src="assets/avatar.png">
+				</td>
+				<td>
+					Lois Okyere
+				</td>
+				<td>
+					<input type="radio" name="president" value="lois">
+				</td>
+				
+			</tr>
+
+
+
+
+		</table>
+
+		<button type="button" onclick="nextprev()">Next</button>
+	
+		</div>
+
+		<div class="hide" id="gensecretary">
+			<h1 class="heading"> General Secretary </h1>
+			<table>
+				
+				<tr>
+					<td>
+					<img src="assets/avatar.png">
+				</td>
+				<td>
+					Emmanuel Emma
+				</td>
+				<td>
+					<input type="radio" name="gensecretary" value="emmanuel">
+				</td>
+				
+			</tr>
+
+			<tr>
+				<td>
+					<img src="assets/avatar.png">
+				</td>
+				<td>
+					Babara Aeisdu
+				</td>
+				<td>
+					<input type="radio" name="gensecretary" value="babara">
+				</td>
+				
+			</tr>
+
+			<tr>
+				<td>
+					<img src="assets/avatar.png">
+				</td>
+				<td>
+					Peter Peter
+				</td>
+				<td>
+					<input type="radio" name="gensecretary" value="peter">
+				</td>
+				
+			</tr>
+
+			</table>
+
+			<button type="submit">Vote</button>
+
+
+			</div>
+
+			<div class="hide" id="fansecretary">
+				<h1 class="heading"> Financial Secretary </h1>
+			<table>
+				
+				<tr>
+					<td>
+					<img src="assets/avatar.png">
+				</td>
+				<td>
+					Emmanuel Emma
+				</td>
+				<td>
+					<input type="radio" name="secretary" value="emmanuel">
+				</td>
+				
+			</tr>
+
+			<tr>
+				<td>
+					<img src="assets/avatar.png">
+				</td>
+				<td>
+					Babara Aeisdu
+				</td>
+				<td>
+					<input type="radio" name="secretary" value="babara">
+				</td>
+				
+			</tr>
+
+			<tr>
+				<td>
+					<img src="assets/avatar.png">
+				</td>
+				<td>
+					Peter Peter
+				</td>
+				<td>
+					<input type="radio" name="secretary" value="peter">
+				</td>
+				
+			</tr>
+
+			</table>
+				<button type="button" onclick="nextprev()">Next</button>
+				
+			</div-->
+
+	</form>
+
+
+	<script type="text/javascript" defer="true">
+
+		function vote(data){
+			data.style.border="none";
+			document.querySelector("img#display").style.display="inline";
+		}
+
+		var display=document.getElementById('display');
+		var request=new XMLHttpRequest();
+		//var url="http://localhost/DOMINIONSRC/user.php";
+		request.open("GET",url,true);
+		request.onreadystatechange=function(){
+		if (this.readyState==4) {
+			//if (this.status == 200) {
+		display.innerHTML=this.responseText;
+	//}
+	/*if (this.status !==200 ) {
+		alert('Bad Connection'); //window.location.replace('out.html');
+	}*/
+	if(this.responseText=="") {
+			alert('SESSION timeout'); window.location.replace('out.html');
+		}
+	}
+	}
+		request.send();
+
+		function nextprev(){
+
+			var president=document.getElementById('president');
+			var gensecretary=document.getElementById('gensecretary');
+			var fansecretary=document.getElementById('fansecretary');
+			var wocommissioner=document.getElementById('wocommissioner');
+			var pro=document.getElementById('pro');
+			var orgsecretary=document.getElementById('orgsecretary');
+			var extaffairspresident=document.getElementById('extaffairspresident');
+
+			if (president.className=="display") {
+				gensecretary.className="display";
+				president.className="hide";
+			}
+			/*else if (gensecretary.className=="display") {
+				fansecretary.className="display";
+				gensecretary.className="hide";
+			}*/
+		}
+
+	</script>
+
+</body>
+</html>
